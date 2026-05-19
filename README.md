@@ -167,3 +167,7 @@ V2 erweitert auf Produktintelligenz und Komfort:
 - Architekturentscheidungen zuerst in den Abschnitten **Scope-Abgrenzung**, **Datenquellen** und **Risiken & Gotchas** lesen.
 - Vor Featurearbeit klären, ob ein Thema zu **V1** oder **V2** gehört.
 - Jede neue Oberfläche mit klarer Datenquellen- und Attribution-Strategie planen.
+
+## Rechtliches / Datenlizenzen
+
+Siehe die umsetzbare Compliance-Checkliste in [`docs/compliance.md`](docs/compliance.md).
