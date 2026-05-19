@@ -70,7 +70,7 @@ Produktivbetrieb ist nur zulässig, wenn **alle** folgenden Punkte erfüllt sind
 - [ ] Für jede produktiv genutzte Datenquelle ist der Status **Freigegeben**.
 - [ ] Verpflichtende Attributionen sind korrekt in der UI sichtbar.
 - [ ] Lizenzauflagen (z. B. Rate Limits, Speicherdauer, Weitergabeverbote) sind technisch umgesetzt.
-- [ ] **MVO-Lizenzvereinbarung ist unterschrieben und archiviert.**
+- [ ] **Falls MVO produktiv genutzt wird:** MVO-Lizenzvereinbarung ist unterschrieben und archiviert.
 - [ ] Interne Verantwortliche (Produkt + Technik + Recht/Compliance) haben die Freigabe dokumentiert.
 
 ---
