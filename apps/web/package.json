@@ -1,0 +1,19 @@
+{
+  "name": "@bim/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "tsc -p tsconfig.build.json && vite build",
+    "test": "vitest",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bim/shared": "file:../../packages/shared",
+    "lucide-react": "^0.511.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0"
+  }
+}

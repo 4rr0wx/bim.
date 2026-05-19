@@ -1,0 +1,39 @@
+{
+  "name": "bim",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Read-first Transit-Produkt fuer Pendler:innen.",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,green \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm --workspace @bim/api run dev",
+    "dev:web": "npm --workspace @bim/web run dev",
+    "build": "npm run build --workspaces",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up --build",
+    "test": "npm run test --workspaces -- --run",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.15.19",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.27.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.3"
+  }
+}

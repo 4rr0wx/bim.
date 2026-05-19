@@ -162,6 +162,40 @@ V2 erweitert auf Produktintelligenz und Komfort:
 
 ---
 
+## Lokaler Start und Deployment
+
+### Entwicklung
+
+```bash
+npm install
+npm run dev
+```
+
+- Web: `http://127.0.0.1:5173`
+- API: `http://127.0.0.1:4000/api/health`
+
+### Docker Compose
+
+Das gesamte V1-Setup kann als Compose-Deployment gestartet werden:
+
+```bash
+docker compose up --build
+```
+
+Alternativ über npm:
+
+```bash
+npm run docker:up
+```
+
+- Web/Nginx: `http://127.0.0.1:8080`
+- API intern: `api:4000`
+- Browser-Requests an `/api/*` werden vom Web-Container an den API-Container weitergeleitet.
+
+Der Compose-Stack verwendet weiterhin ausschließlich Mock-Daten. Produktive Datenquellen bleiben gesperrt, bis die Datenlizenz-Checks aus `docs/compliance.md` erfüllt sind.
+
+---
+
 ## Hinweise für neue Mitwirkende
 
 - Architekturentscheidungen zuerst in den Abschnitten **Scope-Abgrenzung**, **Datenquellen** und **Risiken & Gotchas** lesen.
