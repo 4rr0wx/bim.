@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - work
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-docs-and-links:
+    name: Validate docs + links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check markdown formatting
+        run: |
+          npx --yes markdownlint-cli2 "**/*.md" "#node_modules"
+
+      - name: Check links in markdown
+        run: |
+          npx --yes lychee --no-progress --format detailed --accept 200,206,429 --retry-wait-time 2 --max-retries 2 README.md docs/*.md
+
+  security-and-hygiene:
+    name: Security + repo hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Secret scan (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ensure required docs exist
+        run: |
+          test -f README.md
+          test -f docs/architecture.md
+          test -f docs/compliance.md
